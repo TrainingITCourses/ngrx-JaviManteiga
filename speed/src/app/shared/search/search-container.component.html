@@ -1,0 +1,6 @@
+<div>
+  <app-search-filter-type (selectFilterType)="onSelectFilterType($event)"></app-search-filter-type>
+  <app-search-filter [itemList]="listToShow$ | async" (search)="onSearch($event)"></app-search-filter>
+  <app-launch-results [data]="filteredLaunches$ | async"></app-launch-results>
+  <app-launch-results-count [count]="(filteredLaunches$ | async) ? (filteredLaunches$ | async)?.length : 0"></app-launch-results-count>
+</div>
