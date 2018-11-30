@@ -18,6 +18,7 @@ import { LaunchEffects } from './reducers/launch/launch.effects';
 import { StatusEffects } from './reducers/status/status.effects';
 import { TypeEffects } from './reducers/type/type.effects';
 import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router' // name of reducer key
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
